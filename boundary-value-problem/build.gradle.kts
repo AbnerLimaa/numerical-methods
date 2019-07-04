@@ -24,6 +24,7 @@ repositories {
 }
 
 dependencies {
+    implementation(fileTree("lib"))
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     testImplementation("org.jetbrains.kotlin:kotlin-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit")
@@ -34,9 +35,9 @@ application {
 }
 
 tasks.jar {
-        manifest {
-            attributes["Main-Class"] = "boundaryvalueproblem.AppKt"
-        }
+    manifest {
+        attributes["Main-Class"] = "boundaryvalueproblem.AppKt"
+    }
     
-        from(configurations.compile.get().map { if (it.isDirectory()) it else zipTree(it) }) 
+    from(configurations.compile.get().map { if (it.isDirectory()) it else zipTree(it) }) 
 }

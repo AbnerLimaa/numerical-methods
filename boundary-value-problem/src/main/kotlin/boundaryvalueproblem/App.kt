@@ -3,13 +3,8 @@
  */
 package boundaryvalueproblem
 
-class App {
-    val greeting: String
-        get() {
-            return "Hello world."
-        }
-}
+import linearalgebra.*
 
 fun main(args: Array<String>) {
-    println(App().greeting)
-}
+    
+}   
