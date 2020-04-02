@@ -1,36 +1,90 @@
 #include <stdlib.h>
+#include <float.h>
 #include "function.h"
 
-struct parameters
+struct function
 {
-    double* c;
-    int n;
+    formula f;
+    fconfig* c;
 };
 
-parameters* alloc_parameters(int n)
+struct fconfig
 {
-    parameters* p = (parameters*)calloc(1, sizeof(parameters)); 
-    if (p != NULL)
+    double* values;
+    int values_length;
+};
+
+fconfig* alloc_config(int length)
+{
+    fconfig* c = (fconfig*)calloc(1, sizeof(fconfig)); 
+    if (c != NULL)
     {
-        p->c = (double*)calloc(n, sizeof(double));
-        p->n = n;
+        c->values = (double*)calloc(length, sizeof(double));
+        c->values_length = length;
     }
-    return p;
+    return c;
 }
 
-void free_parameters(parameters* p)
+void free_config(fconfig* c)
 {
-    if (p != NULL)
-        free(p->c);
-    free(p);
+    if (c != NULL)
+        free(c->values);
+    free(c);
 }
 
-double* get_coefficients(parameters* p)
+function* alloc_function(formula f, int config_length)
 {
-    return p->c;
+    function* fun = (function*)calloc(1, sizeof(function));
+    if (fun != NULL)
+    {
+        fun->f = f;
+        fun->c = alloc_config(config_length);
+    }
+    return fun;
 }
 
-int get_length(parameters* p)
+void free_function(function* fun)
 {
-    return p->n;
+    if (fun != NULL)
+    {
+        free_config(fun->c);
+        free(fun);
+    }
+}
+
+formula get_formula(function* fun)
+{
+    if (fun != NULL)
+        return fun->f;
+    return NULL;
+}
+
+fconfig* get_config(function* fun)
+{
+    if (fun != NULL)
+        return fun->c;
+    return NULL;
+}
+
+double eval(function* fun, double x)
+{
+    if (fun != NULL)
+    {
+        formula f = fun->f;
+        fconfig* c = fun->c;
+        return f(x, c);
+    }
+    return DBL_MAX; 
+}
+
+double* get_values(fconfig* c)
+{
+    if (c != NULL)
+        return c->values;
+    return NULL;
+}
+
+int get_values_length(fconfig* c)
+{
+    return c->values_length;
 }

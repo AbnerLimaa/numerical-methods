@@ -1,9 +1,19 @@
-typedef struct parameters parameters;
+typedef struct function function;
 
-parameters* alloc_parameters();
+typedef struct fconfig fconfig;
 
-void free_parameters(parameters* p);
+typedef double (*formula)(double, fconfig*);
 
-double* get_coefficients(parameters* p);
+function* alloc_function(formula f, int config_length);
 
-int get_length(parameters* p);
+void free_function(function* fun);
+
+formula get_formula(function* fun);
+
+fconfig* get_config(function* fun);
+
+double eval(function* fun, double x);
+
+double* get_values(fconfig* c);
+
+int get_values_length(fconfig* c);

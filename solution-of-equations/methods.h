@@ -1,15 +1,17 @@
 #include "function.h"
 
-double bissection(double (*fun)(double, parameters*), parameters* p);
+double bissection(function* f);
 
-double fixed_point(double (*fun)(double, parameters*), parameters* p);
+double fixed_point(function* f_fixed, function* f_diff);
 
-double secant_method(double (*fun)(double, parameters*), parameters* p);
+double newton_method(function* f_diff);
 
-double false_position(double (*fun)(double, parameters*), parameters* p);
+double secant_method(function* f);
 
-double steffensen_method(double (*fun)(double, parameters*), parameters* p);
+double false_position(function* f);
 
-double horner_method(double (*fun)(double, parameters*), parameters* p);
+double steffensen_method(function* f);
 
-double muller_method(double (*fun)(double, parameters*), parameters* p);
+double horner_method(function* f);
+
+double muller_method(function* f);
