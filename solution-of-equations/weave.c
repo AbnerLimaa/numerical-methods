@@ -58,15 +58,15 @@ void print_method_result(char* text, double result)
     }
 }
 
-void run_methods(function* f, function* f_diff, function* f_fixed)
+void run_methods(function* f)
 {
     double result_1 = bissection(f);
     print_method_result("Bissection method", result_1);
 
-    double result_2 = fixed_point(f_fixed, f_diff);
+    double result_2 = fixed_point(f);
     print_method_result("Fixed Point method", result_2);
 
-    double result_3 = newton_method(f_diff);
+    double result_3 = newton_method(f);
     print_method_result("Newton method", result_3);
 
     double result_4 = secant_method(f);
@@ -91,8 +91,6 @@ void option_0()
     int i = 0;
     double* v = NULL;
     function* f = NULL;
-    function* f_diff = NULL;
-    function* f_fixed = NULL;
 
     while(n <= 0)
     {
@@ -110,8 +108,6 @@ void option_0()
         i++;
     }
 
-    run_methods(f, f_diff, f_fixed);
+    run_methods(f);
     free_function(f);
-    free_function(f_diff);
-    free_function(f_fixed);
 }

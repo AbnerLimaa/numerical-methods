@@ -77,6 +77,17 @@ double eval(function* fun, double x)
     return DBL_MAX; 
 }
 
+double eval_diff(function* fun, double p)
+{
+    double x = p - 0.000001;
+    return (eval(fun, x) - eval(fun, p)) / (x - p);
+}
+
+double eval_fixed(function* fun, double x)
+{
+    return x - eval(fun, x);
+}
+
 double* get_values(fconfig* c)
 {
     if (c != NULL)

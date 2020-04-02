@@ -5,12 +5,12 @@
 #include "methods.h"
 #include "function.h"
 
-#define K 10000
+#define K 100000
 #define E 0.000001
 
-double* find_values(function* fun)
+double* find_range(function* fun)
 {
-    double* values = calloc(2, sizeof(double));
+    double* range = calloc(2, sizeof(double));
     int i = -100;
     while(i < 100)
     {
@@ -18,49 +18,49 @@ double* find_values(function* fun)
         double eval_next_i = eval(fun, i + 1);
         if ((eval_i >= 0 && eval_next_i <= 0) || (eval_i <= 0 && eval_next_i >= 0))
         {
-            values[0] = i;
-            values[1] = i + 1;
-            return values;
+            range[0] = i;
+            range[1] = i + 1;
+            return range;
         }
         i++;
     }
     return NULL;
 }
 
-double bissection(function* fun)
+double bissection(function* f)
 {
-    if (fun == NULL)
+    if (f == NULL)
         return DBL_MAX;
 
-    double* values = find_values(fun);
+    double* range = find_range(f);
     double result;
 
-    if (values == NULL)
+    if (range == NULL)
         return DBL_MAX;
 
-    if (eval(fun, values[0]) == 0)
+    if (eval(f, range[0]) == 0)
     {
-        result = values[0];
-        free(values);
+        result = range[0];
+        free(range);
         return result;
     }
     
-    if (eval(fun, values[1]) == 0)
+    if (eval(f, range[1]) == 0)
     {
-        result = values[1];
-        free(values);
+        result = range[1];
+        free(range);
         return result;
     }
 
     int i = 0;
-    double a = values[0];
-    double b = values[1];
+    double a = range[0];
+    double b = range[1];
     double m = (a + b) / 2;
     double last_m;
     do
     {
         last_m = m; 
-        if((eval(fun, m) * eval(fun, a)) < 0)
+        if((eval(f, m) * eval(f, a)) < 0)
             b = m;
         else
             a = m;
@@ -69,30 +69,52 @@ double bissection(function* fun)
     } while (fabs((m - last_m)/m) > E && i < K);
 
     result = m;
-    free(values);
+    free(range);
     return result;
 }
 
-double fixed_point(function* f_fixed, function* f_diff)
+double fixed_point(function* f)
 {
-    if (f_fixed == NULL || f_diff == NULL)
+    if (f == NULL)
         return DBL_MAX;
         
+    double* range = find_range(f);
+    double result;
+
+    if (range == NULL)
+        return DBL_MAX;
+
+    if (eval(f, range[0]) == 0)
+    {
+        result = range[0];
+        free(range);
+        return result;
+    }
+    
+    if (eval(f, range[1]) == 0)
+    {
+        result = range[1];
+        free(range);
+        return result;
+    }
+
     int i = 0;
     double m;
-    double last_m = 0;
+    double last_m = (range[0] + range[1]) / 2;
     while (i < K)
     {
-        m = eval(f_fixed, last_m);
+        m = eval_fixed(f, last_m);
         if (fabs(m - last_m) <= E)
-            return m;
+            i = K;
         last_m = m;
         i++;
     }
+
+    free(range);
     return m;
 }
 
-double newton_method(function* f_diff)
+double newton_method(function* f)
 {
     return DBL_MAX;
 }

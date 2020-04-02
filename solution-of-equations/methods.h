@@ -2,9 +2,9 @@
 
 double bissection(function* f);
 
-double fixed_point(function* f_fixed, function* f_diff);
+double fixed_point(function* f);
 
-double newton_method(function* f_diff);
+double newton_method(function* f);
 
 double secant_method(function* f);
 
