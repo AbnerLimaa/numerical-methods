@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <float.h>
+#include <math.h>
 #include "function.h"
 
 struct function
@@ -77,10 +78,13 @@ double eval(function* fun, double x)
     return DBL_MAX; 
 }
 
-double eval_diff(function* fun, double p)
+double eval_diff(function* fun, double p, int n)
 {
     double x = p - 0.000001;
-    return (eval(fun, x) - eval(fun, p)) / (x - p);
+    double f_diff = 0;
+    for (int i = 0; i < abs(n); i++)
+        f_diff += (eval(fun, x) - eval(fun, p)) / (x - p); 
+    return f_diff;
 }
 
 double eval_fixed(function* fun, double x)

@@ -14,7 +14,7 @@ fconfig* get_config(function* fun);
 
 double eval(function* fun, double x);
 
-double eval_diff(function* fun, double p);
+double eval_diff(function* fun, double p, int n);
 
 double eval_fixed(function* fun, double x);
 
