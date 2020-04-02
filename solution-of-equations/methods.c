@@ -9,6 +9,72 @@
 #define K 100000
 #define E 0.000001
 
+struct method_data
+{
+    char* name;
+    double result;
+    double ellapsed_time;
+    int iterations;
+};
+
+method_data* alloc_method_data(int name_length)
+{
+    method_data* data = (method_data*)calloc(1, sizeof(method_data));
+    if (data != NULL)
+    {
+        data->name = (char*)calloc(name_length, sizeof(char));
+        return data;
+    }
+    return NULL;
+}
+
+void free_method_data(method_data* data)
+{
+    if (data != NULL)
+    {
+        free(data->name);
+        free(data);
+    }
+}
+
+char* get_name(method_data* data)
+{
+    if (data != NULL)
+        return data->name;
+    return NULL;
+}
+
+double get_result(method_data* data)
+{
+    if (data != NULL)
+        return data->result;
+    return 0;
+}
+
+double get_ellapsed_time(method_data* data)
+{
+    if (data != NULL)
+        return data->ellapsed_time;
+    return 0;
+}
+
+int get_iterations(method_data* data)
+{
+    if (data != NULL)
+        return data->iterations;
+    return 0;
+}
+
+void set_method_data(method_data* data, double result, double ellapsed_time, int iterations)
+{
+    if (data != NULL)
+    {
+        data->result = result;
+        data->ellapsed_time = ellapsed_time;
+        data->iterations = iterations;
+    }
+}
+
 double* find_range(function* fun)
 {
     if (fun != NULL)
@@ -56,18 +122,26 @@ int test_range(function* f, double* range, double* result)
     return state;
 }
 
-double bissection(function* f)
+method_data* bissection(function* f)
 {
+    method_data* data = alloc_method_data(50);
     double result;
+    double ellapsed_time;
+    int i = 0;
+
     double* range = find_range(f);
     int state = test_range(f, range, &result);
 
-    if (state == 0)
-        return DBL_MAX;
+    if (state == 0 || data == NULL)
+        return NULL;
+
+    strcpy(data->name, "Bissection Method");
     if (state == 1)
-        return result;
+    {
+        set_method_data(data, result, 0, i);
+        return data;
+    }
     
-    int i = 0;
     double a = range[0];
     double b = range[1];
     double m = (a + b) / 2;
@@ -83,79 +157,100 @@ double bissection(function* f)
         i++;
     } while (fabs((m - last_m)/m) > E && i < K);
 
-    result = m;
+    set_method_data(data, m, 0, i);
     free(range);
-    return result;
+    return data;
 }
 
-double fixed_point(function* f)
+method_data* fixed_point(function* f)
 {
+    method_data* data = alloc_method_data(50);
     double result;
+    double ellapsed_time;
+    int i = 0;
+
     double* range = find_range(f);
     int state = test_range(f, range, &result);
 
-    if (state == 0)
-        return DBL_MAX;
+    if (state == 0 || data == NULL)
+        return NULL;
+    strcpy(data->name, "Fixed Point Method");
     if (state == 1)
-        return result;
+    {
+        set_method_data(data, result, 0, i);
+        return data;
+    }
 
-    int i = 0;
     double m;
     double last_m = (range[0] + range[1]) / 2;
     while (i < K)
     {
         m = eval_fixed(f, last_m);
         if (fabs(m - last_m) <= E)
-            i = K;
+            break;
         last_m = m;
         i++;
     }
 
-    result = m;
+    set_method_data(data, m, 0, i);
     free(range);
-    return result;
+    return data;
 }
 
-double newton_method(function* f)
+method_data* newton_method(function* f)
 {
+    method_data* data = alloc_method_data(50);
     double result;
+    double ellapsed_time;
+    int i = 0;
+
     double* range = find_range(f);
     int state = test_range(f, range, &result);
 
-    if (state == 0)
-        return DBL_MAX;
+    if (state == 0 || data == NULL)
+        return NULL;
+    strcpy(data->name, "Newton Method");
     if (state == 1)
-        return result;
-
-    int i = 0; 
+    {
+        set_method_data(data, result, 0, i);
+        return data;
+    }
+ 
     double m;
     double last_m = (range[0] + range[1]) / 2;
     while (i < K)
     {
         m = last_m - (eval(f, last_m) / eval_diff(f, last_m, 1));
         if (fabs(m - last_m) <= E)
-            i = K;
+            break;
         last_m = m;
         i++;
     }
 
-    result = m;
+    set_method_data(data, m, 0, i);
     free(range);
-    return result;
+    return data;
 }
 
-double secant_method(function* f)
+method_data* secant_method(function* f)
 {
+    method_data* data = alloc_method_data(50);
     double result;
+    double ellapsed_time;
+    int i = 0;
+
     double* range = find_range(f);
     int state = test_range(f, range, &result);
 
-    if (state == 0)
-        return DBL_MAX;
+    if (state == 0 || data == NULL)
+        return NULL;
+    strcpy(data->name, "Secant Method");
     if (state == 1)
-        return result;
+    {
+        set_method_data(data, result, 0, i);
+        return data;
+    }
 
-    int i = 0;
     double half_interval = (range[1] - range[0]) / 2;
     double p = (range[0] + range[1]) / 2;
     double p0 = p - (half_interval / 2);
@@ -167,7 +262,7 @@ double secant_method(function* f)
     {
         p = p1 - ((q1 * (p1 - p0)) / (q1 - q0));
         if (fabs(p - p1) <= E)
-            i = K;
+            break;
         p0 = p1;
         q0 = q1;
         p1 = p;
@@ -175,27 +270,104 @@ double secant_method(function* f)
         i++;
     }
 
-    result = p;
+    set_method_data(data, p, 0, i);
     free(range);
-    return result;
+    return data;
 }
 
-double false_position(function* f)
+method_data* false_position(function* f)
 {
-    return DBL_MAX;
+    method_data* data = alloc_method_data(50);
+    double result;
+    double ellapsed_time;
+    int i = 0;
+
+    double* range = find_range(f);
+    int state = test_range(f, range, &result);
+
+    if (state == 0 || data == NULL)
+        return NULL;
+    strcpy(data->name, "False Position Method");
+    if (state == 1)
+    {
+        set_method_data(data, result, 0, i);
+        return data;
+    }
+
+    double half_interval = (range[1] - range[0]) / 2;
+    double p = (range[0] + range[1]) / 2;
+    double p0 = p - (half_interval / 2);
+    double p1 = p + (half_interval / 2);
+    double q;
+    double q0 = eval(f, p0);
+    double q1 = eval(f, p1);
+    
+    while (i < K)
+    {
+        p = p1 - ((q1 * (p1 - p0)) / (q1 - q0));
+        if (fabs(p - p1) <= E)
+            break;
+        q = eval(f, p);
+        if (q * q1 < 0)
+        {
+            p0 = p1;
+            q0 = q1;
+        }
+        p1 = p;
+        q1 = q;
+        i++;
+    }
+
+    set_method_data(data, p, 0, i);
+    free(range);
+    return data;
 }
 
-double steffensen_method(function* f)
+method_data* steffensen_method(function* f)
 {
-    return DBL_MAX;
+    method_data* data = alloc_method_data(50);
+    double result;
+    double ellapsed_time;
+    int i = 0;
+
+    double* range = find_range(f);
+    int state = test_range(f, range, &result);
+
+    if (state == 0 || data == NULL)
+        return NULL;
+    strcpy(data->name, "Steffensen Method");
+    if (state == 1)
+    {
+        set_method_data(data, result, 0, i);
+        return data;
+    }   
+
+    double p;
+    double p0 = (range[0] + range[1]) / 2;
+    double p1;
+    double p2;
+    while (i < K)
+    {
+        p1 = eval_fixed(f, p0);
+        p2 = eval_fixed(f, p1);
+        p = p0 - (pow(p1 - p0, 2) / (p2 - (2 * p1) + p0));
+        if (fabs(p - p0) <= E)
+            break;
+        p0 = p;
+        i++;
+    }
+
+    set_method_data(data, p, 0, i);
+    free(range);
+    return data;
 }
 
-double horner_method(function* f)
+method_data* horner_method(function* f)
 {
-    return DBL_MAX;
+    return NULL;
 }
 
-double muller_method(function* f)
+method_data* muller_method(function* f)
 {
-    return DBL_MAX;
+    return NULL;
 }

@@ -42,47 +42,57 @@ void execute(object* o)
     o->function();
 }
 
-void print_method_result(char* text, double result)
+void print_method_result(method_data* data)
 {
-    char dest[50];
-    strcpy(dest, text);
-    if (result != DBL_MAX)
+    if (data != NULL)
     {
-        strcat(dest, ": %lf\n");
-        printf(dest, result);
-    }
-    else
-    {
-        strcat(dest, ": fail\n");
-        printf("%s", dest);
+        char* name = get_name(data);
+        double result = get_result(data);
+        double ellapsed_time = get_ellapsed_time(data);
+        int iterations = get_iterations(data);
+        strcat(name, "\n");
+        printf("%s", name);
+        printf("Result: %lf\n", result);
+        printf("Ellapsed Time: %lf\n", ellapsed_time);
+        printf("Iterations: %d\n", iterations);
+        printf("\n");
     }
 }
 
 void run_methods(function* f)
 {
-    double result_1 = bissection(f);
-    print_method_result("Bissection method", result_1);
+    method_data* data_1 = bissection(f);
+    print_method_result(data_1);
 
-    double result_2 = fixed_point(f);
-    print_method_result("Fixed Point method", result_2);
+    method_data* data_2 = fixed_point(f);
+    print_method_result(data_2);
 
-    double result_3 = newton_method(f);
-    print_method_result("Newton method", result_3);
+    method_data* data_3 = newton_method(f);
+    print_method_result(data_3);
 
-    double result_4 = secant_method(f);
-    print_method_result("Secant method", result_4);
+    method_data* data_4 = secant_method(f);
+    print_method_result(data_4);
 
-    double result_5 = false_position(f);
-    print_method_result("False Position method", result_5);
+    method_data* data_5 = false_position(f);
+    print_method_result(data_5);
 
-    double result_6 = steffensen_method(f);
-    print_method_result("Steffensen method", result_6);
+    method_data* data_6 = steffensen_method(f);
+    print_method_result(data_6);
 
-    double result_7 = horner_method(f);
-    print_method_result("Horner method", result_7);
+    method_data* data_7 = horner_method(f);
+    print_method_result(data_7);
 
-    double result_8 = muller_method(f);
-    print_method_result("Muller method", result_8);
+    method_data* data_8 = muller_method(f);
+    print_method_result(data_8);
+
+    free_method_data(data_1);
+    free_method_data(data_2);
+    free_method_data(data_3);
+    free_method_data(data_4);
+    free_method_data(data_5);
+    free_method_data(data_6);
+    free_method_data(data_7);
+    free_method_data(data_8);
 }
 
 void option_0()
