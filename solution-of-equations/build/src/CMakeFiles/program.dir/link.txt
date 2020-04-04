@@ -1,0 +1,1 @@
+/usr/bin/gcc-7 -g   CMakeFiles/program.dir/program.c.o  -o program ../lib/weave/libweave.a ../lib/model/libmodel.a -lm ../lib/utils/libutils.a 

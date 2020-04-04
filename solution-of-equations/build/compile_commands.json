@@ -1,0 +1,37 @@
+[
+{
+  "directory": "/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/build/lib/utils",
+  "command": "/usr/bin/gcc-7  -I/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/lib/utils  -g   -o CMakeFiles/utils.dir/ticker.c.o   -c /home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/lib/utils/ticker.c",
+  "file": "/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/lib/utils/ticker.c"
+},
+{
+  "directory": "/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/build/lib/model",
+  "command": "/usr/bin/gcc-7  -I/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/lib/model -I/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/lib/utils  -g   -o CMakeFiles/model.dir/function.c.o   -c /home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/lib/model/function.c",
+  "file": "/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/lib/model/function.c"
+},
+{
+  "directory": "/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/build/lib/model",
+  "command": "/usr/bin/gcc-7  -I/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/lib/model -I/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/lib/utils  -g   -o CMakeFiles/model.dir/number.c.o   -c /home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/lib/model/number.c",
+  "file": "/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/lib/model/number.c"
+},
+{
+  "directory": "/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/build/lib/model",
+  "command": "/usr/bin/gcc-7  -I/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/lib/model -I/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/lib/utils  -g   -o CMakeFiles/model.dir/equations.c.o   -c /home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/lib/model/equations.c",
+  "file": "/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/lib/model/equations.c"
+},
+{
+  "directory": "/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/build/lib/model",
+  "command": "/usr/bin/gcc-7  -I/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/lib/model -I/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/lib/utils  -g   -o CMakeFiles/model.dir/methods.c.o   -c /home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/lib/model/methods.c",
+  "file": "/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/lib/model/methods.c"
+},
+{
+  "directory": "/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/build/lib/weave",
+  "command": "/usr/bin/gcc-7  -I/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/lib/weave -I/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/lib/model  -g   -o CMakeFiles/weave.dir/weave.c.o   -c /home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/lib/weave/weave.c",
+  "file": "/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/lib/weave/weave.c"
+},
+{
+  "directory": "/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/build/src",
+  "command": "/usr/bin/gcc-7  -I/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/lib/weave  -g   -o CMakeFiles/program.dir/program.c.o   -c /home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/src/program.c",
+  "file": "/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/src/program.c"
+}
+]

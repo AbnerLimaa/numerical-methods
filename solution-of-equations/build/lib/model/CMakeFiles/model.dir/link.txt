@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmodel.a  CMakeFiles/model.dir/function.c.o CMakeFiles/model.dir/number.c.o CMakeFiles/model.dir/equations.c.o CMakeFiles/model.dir/methods.c.o
+/usr/bin/ranlib libmodel.a
