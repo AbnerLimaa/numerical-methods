@@ -49,12 +49,20 @@ methods.h
 /home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/lib/model/methods.h
 function.h
 /home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/lib/model/function.h
+number.h
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/lib/model/number.h
 
 /home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/lib/model/methods.h
 function.h
 /home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/lib/model/function.h
 
 /home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/lib/model/number.c
+stdlib.h
+-
+float.h
+-
+stdio.h
+-
 number.h
 /home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/lib/model/number.h
 

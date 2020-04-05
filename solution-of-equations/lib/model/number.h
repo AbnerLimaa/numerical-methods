@@ -41,4 +41,6 @@ complex* mul_complex(complex* c1, complex* c2);
 
 complex* div_complex(complex* c1, complex* c2);
 
+complex* conjugate(complex* c);
+
 #endif

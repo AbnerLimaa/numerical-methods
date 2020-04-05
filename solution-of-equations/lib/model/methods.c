@@ -6,6 +6,7 @@
 #include <ticker.h>
 #include "methods.h"
 #include "function.h"
+#include "number.h"
 
 #define K 100000
 #define E 0.000001

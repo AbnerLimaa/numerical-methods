@@ -52,7 +52,7 @@ void print_method_result(method_data* data)
         int iterations = get_iterations(data);
         strcat(name, "\n");
         printf("%s", name);
-        printf("Result: %lf\n", result);
+        printf("Root: %lf\n", result);
         printf("Ellapsed Time: %lf s\n", ellapsed_time);
         printf("Iterations: %d\n", iterations);
         printf("\n");

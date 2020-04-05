@@ -12,6 +12,7 @@ lib/model/CMakeFiles/model.dir/methods.c.o: ../lib/utils/ticker.h
 lib/model/CMakeFiles/model.dir/methods.c.o: ../lib/model/function.h
 lib/model/CMakeFiles/model.dir/methods.c.o: ../lib/model/methods.c
 lib/model/CMakeFiles/model.dir/methods.c.o: ../lib/model/methods.h
+lib/model/CMakeFiles/model.dir/methods.c.o: ../lib/model/number.h
 
 lib/model/CMakeFiles/model.dir/number.c.o: ../lib/model/number.c
 lib/model/CMakeFiles/model.dir/number.c.o: ../lib/model/number.h
