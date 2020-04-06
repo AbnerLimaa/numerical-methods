@@ -94,7 +94,7 @@ void option_0()
     double x = 0;
     table* t = NULL;
 
-    while(n <= 0)
+    while(n < 2)
     {
         printf("How many points will you provide\n");
         scanf("%d", &n);
@@ -127,6 +127,6 @@ void option_0()
         if (op == 'n')
             break;
     }   
-    
+
     free_table(t);
 }

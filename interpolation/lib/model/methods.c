@@ -135,6 +135,46 @@ method_data* lagrange(table* t, double x)
 
 method_data* neville(table* t, double x)
 {
+    if (t != NULL)
+    {
+        method_data* data = alloc_method_data(50);
+        ticker* tic = alloc_ticker();
+
+        if (tic == NULL || data == NULL)
+            return NULL;
+        
+        strcpy(data->name, "Neville Method");
+        double result = 0;
+        double ellapsed_time = 0;
+        int iterations = 0;
+
+        start(tic);
+        int n = get_length(t);
+        double Q[n][n];
+        double xi = 0;
+        double xi_j = 0;
+
+        for(int i = 0; i < n; i++)
+            Q[i][0] = get_y(t, i);
+
+        for(int i = 1; i < n; i++)
+        {
+            for(int j = 1; j <= i; j++)
+            {
+                xi = get_x(t, i);
+                xi_j = get_x(t, i - j);
+                Q[i][j] = ((((x - xi_j) * Q[i][j - 1]) - ((x - xi) * Q[i - 1][j - 1])) / (xi - xi_j));
+                iterations++;
+            }
+        }
+        end(tic);
+
+        ellapsed_time = spent_time(tic);
+        result = Q[n - 1][n - 1];
+        set_method_data(data, result, ellapsed_time, iterations);
+        
+        return data;
+    }
     return NULL;
 }
 
