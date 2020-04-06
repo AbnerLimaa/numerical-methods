@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/src/math/function.h
+
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/src/math/methods.c
+stdlib.h
+-
+stdio.h
+-
+float.h
+-
+math.h
+-
+string.h
+-
+methods.h
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/src/math/methods.h
+function.h
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/src/math/function.h
+../utils/ticker.h
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/src/utils/ticker.h
+
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/src/math/methods.h
+function.h
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/src/math/function.h
+
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/src/utils/ticker.h
+

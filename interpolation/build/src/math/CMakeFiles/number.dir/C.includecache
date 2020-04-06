@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/src/math/number.c
+number.h
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/src/math/number.h
+
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/src/math/number.h
+

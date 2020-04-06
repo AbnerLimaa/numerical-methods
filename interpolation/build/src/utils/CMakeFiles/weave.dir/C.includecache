@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/src/math/equations.h
+function.h
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/src/math/function.h
+
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/src/math/function.h
+
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/src/math/methods.h
+function.h
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/src/math/function.h
+
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/src/utils/weave.c
+stdlib.h
+-
+stdio.h
+-
+float.h
+-
+string.h
+-
+weave.h
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/src/utils/weave.h
+../math/methods.h
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/src/math/methods.h
+../math/equations.h
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/src/math/equations.h
+../math/function.h
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/src/math/function.h
+
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/solution-of-equations/src/utils/weave.h
+

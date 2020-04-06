@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../lib/model/methods.h
+table.h
+../lib/model/table.h
+
+../lib/model/table.h
+
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/interpolation/lib/weave/weave.c
+stdlib.h
+-
+stdio.h
+-
+float.h
+-
+string.h
+-
+methods.h
+-
+table.h
+-
+weave.h
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/interpolation/lib/weave/weave.h
+
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/interpolation/lib/weave/weave.h
+

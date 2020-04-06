@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../lib/utils/ticker.h
+
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/interpolation/lib/model/methods.c
+stdlib.h
+-
+stdio.h
+-
+float.h
+-
+math.h
+-
+string.h
+-
+ticker.h
+-
+methods.h
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/interpolation/lib/model/methods.h
+
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/interpolation/lib/model/methods.h
+table.h
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/interpolation/lib/model/table.h
+
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/interpolation/lib/model/table.c
+stdlib.h
+-
+limits.h
+-
+float.h
+-
+table.h
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/interpolation/lib/model/table.h
+
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/interpolation/lib/model/table.h
+

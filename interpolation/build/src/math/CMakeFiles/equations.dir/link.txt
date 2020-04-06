@@ -1,0 +1,2 @@
+/usr/bin/ar qc libequations.a  CMakeFiles/equations.dir/equations.c.o
+/usr/bin/ranlib libequations.a
