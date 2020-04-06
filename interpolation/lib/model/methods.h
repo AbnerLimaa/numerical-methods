@@ -15,16 +15,16 @@ double get_ellapsed_time(method_data* data);
 
 int get_iterations(method_data* data);
 
-method_data* lagrange(table* t);
+method_data* lagrange(table* t, double x);
 
-method_data* neville(table* t);
+method_data* neville(table* t, double x);
 
-method_data* divided_differences(table* t);
+method_data* divided_differences(table* t, double x);
 
-method_data* hermite(table* t);
+method_data* hermite(table* t, double x);
 
-method_data* natural_cubic_spline(table* t);
+method_data* natural_cubic_spline(table* t, double x);
 
-method_data* clamped_cubic_spline(table* t);
+method_data* clamped_cubic_spline(table* t, double x);
 
 #endif

@@ -56,27 +56,26 @@ void print_method_result(method_data* data)
         printf("Iterations: %d\n", iterations);
         printf("\n");
     }
-    printf("yeah\n");
 }
 
-void run_methods(table* t)
+void run_methods(table* t, double x)
 {
-    method_data* data_1 = lagrange(t);
+    method_data* data_1 = lagrange(t, x);
     print_method_result(data_1);
 
-    method_data* data_2 = neville(t);
+    method_data* data_2 = neville(t, x);
     print_method_result(data_2);
 
-    method_data* data_3 = divided_differences(t);
+    method_data* data_3 = divided_differences(t, x);
     print_method_result(data_3);
 
-    method_data* data_4 = hermite(t);
+    method_data* data_4 = hermite(t, x);
     print_method_result(data_4);
 
-    method_data* data_5 = natural_cubic_spline(t);
+    method_data* data_5 = natural_cubic_spline(t, x);
     print_method_result(data_5);
 
-    method_data* data_6 = clamped_cubic_spline(t);
+    method_data* data_6 = clamped_cubic_spline(t, x);
     print_method_result(data_6);
 
     free_method_data(data_1);
@@ -89,8 +88,10 @@ void run_methods(table* t)
 
 void option_0()
 {
+    char op = 'y';
     int n = 0;
     int i = 0;
+    double x = 0;
     table* t = NULL;
 
     while(n <= 0)
@@ -106,15 +107,26 @@ void option_0()
     {
         double xi = 0;
         double yi = 0;
-        printf("x%d: ", i);
-        scanf("%lf\n", &xi);
-        printf("f(x%d): ", i);
-        scanf("%lf\n", &yi);
+        printf("x%d: \n", i);
+        scanf("%lf", &xi);
+        printf("f(x%d): \n", i);
+        scanf("%lf", &yi);
         set_x(t, i, xi);
         set_y(t, i, yi);
         i++;
     }
 
-    run_methods(t);
+    while(1)
+    {
+        printf("Evaluate function on which x coordinate\n");
+        scanf("%lf", &x);
+        run_methods(t, x);
+        
+        printf("Continue(y/n)");
+        scanf(" %c", &op);
+        if (op == 'n')
+            break;
+    }   
+    
     free_table(t);
 }
