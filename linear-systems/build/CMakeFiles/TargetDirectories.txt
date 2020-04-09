@@ -1,0 +1,14 @@
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/linear-systems/build/CMakeFiles/rebuild_cache.dir
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/linear-systems/build/CMakeFiles/edit_cache.dir
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/linear-systems/build/lib/utils/CMakeFiles/rebuild_cache.dir
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/linear-systems/build/lib/utils/CMakeFiles/utils.dir
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/linear-systems/build/lib/utils/CMakeFiles/edit_cache.dir
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/linear-systems/build/lib/model/CMakeFiles/rebuild_cache.dir
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/linear-systems/build/lib/model/CMakeFiles/model.dir
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/linear-systems/build/lib/model/CMakeFiles/edit_cache.dir
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/linear-systems/build/lib/weave/CMakeFiles/rebuild_cache.dir
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/linear-systems/build/lib/weave/CMakeFiles/weave.dir
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/linear-systems/build/lib/weave/CMakeFiles/edit_cache.dir
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/linear-systems/build/src/CMakeFiles/rebuild_cache.dir
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/linear-systems/build/src/CMakeFiles/program.dir
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/linear-systems/build/src/CMakeFiles/edit_cache.dir

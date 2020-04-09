@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/linear-systems/lib/utils/ticker.c
+time.h
+-
+stdlib.h
+-
+ticker.h
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/linear-systems/lib/utils/ticker.h
+
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/linear-systems/lib/utils/ticker.h
+

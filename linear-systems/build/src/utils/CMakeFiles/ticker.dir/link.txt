@@ -1,0 +1,2 @@
+/usr/bin/ar qc libticker.a  CMakeFiles/ticker.dir/ticker.c.o
+/usr/bin/ranlib libticker.a

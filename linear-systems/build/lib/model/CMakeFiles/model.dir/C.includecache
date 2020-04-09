@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../lib/utils/ticker.h
+
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/linear-systems/lib/model/matrix.c
+stdlib.h
+-
+limits.h
+-
+float.h
+-
+matrix.h
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/linear-systems/lib/model/matrix.h
+
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/linear-systems/lib/model/matrix.h
+
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/linear-systems/lib/model/methods.c
+stdlib.h
+-
+stdio.h
+-
+float.h
+-
+math.h
+-
+string.h
+-
+ticker.h
+-
+methods.h
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/linear-systems/lib/model/methods.h
+
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/linear-systems/lib/model/methods.h
+matrix.h
+/home/abner/Documents/repositorios/ciencia-da-computacao/numerical-methods/linear-systems/lib/model/matrix.h
+
