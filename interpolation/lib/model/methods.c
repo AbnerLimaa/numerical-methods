@@ -180,11 +180,105 @@ method_data* neville(table* t, double x)
 
 method_data* divided_differences(table* t, double x)
 {
+    if (t != NULL)
+    {
+        method_data* data = alloc_method_data(50);
+        ticker* tic = alloc_ticker();
+
+        if (tic == NULL || data == NULL)
+            return NULL;
+        
+        strcpy(data->name, "Divided Differences Method");
+        double result = 0;
+        double ellapsed_time = 0;
+        int iterations = 0;
+
+        start(tic);
+        int n = get_length(t);
+        double F[n][n];
+
+        for(int i = 0; i < n; i++)
+            F[i][0] = get_y(t, i);
+
+        for(int i = 1; i < n; i++)
+        {
+            double product = 1;
+            for(int j = 1; j <= i; j++)
+            {
+                F[i][j] = ((F[i][j - 1] - F[i - 1][j - 1]) / (get_x(t, i) - get_x(t, i - j)));
+                product *= (x - get_x(t, j - 1));
+                if (i == j)
+                    result += (F[i][i] * product);
+                iterations++;
+            }
+        }
+        end(tic);
+
+        ellapsed_time = spent_time(tic);
+        result += F[0][0];
+        set_method_data(data, result, ellapsed_time, iterations);
+        
+        return data;
+    }
     return NULL;
 }
 
-method_data* hermite(table* t, double x)
+method_data* hermite(table* t1, table* t2, double x)
 {
+    if (t1 != NULL && t2 != NULL && get_length(t1) == get_length(t2))
+    {
+        method_data* data = alloc_method_data(50);
+        ticker* tic = alloc_ticker();
+
+        if (tic == NULL || data == NULL)
+            return NULL;
+        
+        strcpy(data->name, "Hermite Method");
+        double result = 0;
+        double ellapsed_time = 0;
+        int iterations = 0;
+
+        start(tic);
+        int n = get_length(t1);
+        double Q[2*n][2*n];
+        double Z[2*n];
+
+        for(int i = 0; i < n; i++)
+        {
+            Z[2 * i] = get_x(t1, i);
+            Z[(2 * i) + 1] = get_x(t1, i);
+
+            Q[2 * i][0] = get_y(t1, i);
+            Q[(2 * i) + 1][0] = get_y(t1, i);
+
+            if (i != 0)
+                Q[2 * i][1] = ((Q[2 * i][0] - Q[(2 * i) - 1][0]) / (Z[2 * i] - Z[(2 * i) - 1]));
+            Q[(2 * i) + 1][1] = get_y(t2, i);
+        }
+
+        int current_x = 0;
+        double product = x - get_x(t1, 0);
+        for (int i = 2; i < 2 * n; i++)
+        {
+            if (i % 2 != 0)
+                current_x = i / 2;
+            product *= (x - get_x(t1, current_x));
+            for (int j = 2; j <= i; j++)
+            {
+                Q[i][j] = ((Q[i][j - 1] - Q[i - 1][j - 1]) / (Z[i] - Z[i - j]));
+                if (i == j)
+                    result += (Q[i][j] * product);
+                iterations++;
+            }
+        }
+        end(tic);
+
+        ellapsed_time = spent_time(tic);
+        result += (Q[0][0] + Q[1][1] * (x - get_x(t1, 0)));
+        set_method_data(data, result, ellapsed_time, iterations);
+        
+        return data;
+    }
     return NULL;
 }
 

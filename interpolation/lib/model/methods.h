@@ -21,7 +21,7 @@ method_data* neville(table* t, double x);
 
 method_data* divided_differences(table* t, double x);
 
-method_data* hermite(table* t, double x);
+method_data* hermite(table* t1, table* t2, double x);
 
 method_data* natural_cubic_spline(table* t, double x);
 
