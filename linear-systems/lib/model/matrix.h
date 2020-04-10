@@ -15,4 +15,10 @@ double get(matrix* m, int i, int j);
 
 void set(matrix* m, int i, int j, double x);
 
+void switch_lines(matrix* m, int i, int j);
+
+void multiply_line(matrix* m, int i, double k);
+
+void eliminate(matrix* m, int i, int j, double k);
+
 #endif

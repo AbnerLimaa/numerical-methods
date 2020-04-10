@@ -59,3 +59,35 @@ void set(matrix* m, int i, int j, double x)
     if (m != NULL && i >= 0 && i < m->h && j >= 0 && j < m->w)
         m->A[i][j] = x;
 }
+
+void switch_lines(matrix* m, int i, int j)
+{
+    if (m != NULL && i >= 0 && i < m->h && j >= 0 && j < m->h)
+    {
+        double aux;
+        for (int w = 0; w < m->w; w++)
+        {
+            aux = m->A[i][w];
+            m->A[i][w] = m->A[j][w];
+            m->A[j][w] = aux;
+        }
+    }
+}
+
+void multiply_line(matrix* m, int i, double k)
+{
+    if (m != NULL && i >= 0 && i < m->h && k != 0)
+    {
+        for (int w = 0; w < m->w; w++)
+            m->A[i][w] *= k;
+    }
+}
+
+void eliminate(matrix* m, int i, int j, double k)
+{
+    if (m != NULL && i >= 0 && i < m->h && j >= 0 && j < m->h)
+    {
+        for (int w = 0; w < m->w; w++)
+            m->A[j][w] -= (m->A[i][w] * k);
+    }
+}
