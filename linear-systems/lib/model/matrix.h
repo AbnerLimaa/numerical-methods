@@ -21,4 +21,20 @@ void multiply_line(matrix* m, int i, double k);
 
 void eliminate(matrix* m, int i, int j, double k);
 
+void mult_scalar(matrix* m, double k);
+
+matrix* sum(matrix* m1, matrix* m2);
+
+matrix* mult(matrix* m1, matrix* m2);
+
+matrix* transpose(matrix* m);
+
+double determinant(matrix* m);
+
+void lu_factorization(matrix* m, matrix* l, matrix* u);
+
+void ldl_factorization(matrix* m, matrix* l, matrix* d, matrix* l_t);
+
+void cholesky_factorization(matrix* m, matrix* l, matrix* l_t);
+
 #endif

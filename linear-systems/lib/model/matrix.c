@@ -91,3 +91,94 @@ void eliminate(matrix* m, int i, int j, double k)
             m->A[j][w] -= (m->A[i][w] * k);
     }
 }
+
+void mult_scalar(matrix* m, double k)
+{
+    if (m != NULL)
+    {
+        for (int i = 0; i < m->h; i++)
+        {
+            for (int j = 0; j < m->w; j++)
+                m->A[i][j] *= k;
+        }
+    }
+}
+
+matrix* sum(matrix* m1, matrix* m2)
+{
+    if (m1 != NULL && m2 != NULL && m1->h == m2->h && m1->w && m2->w)
+    {
+        matrix* m3 = alloc_matrix(m1->w, m1->h);
+        if (m3 != NULL)
+        {
+            for (int i = 0; i < m1->h; i++)
+            {
+                for(int j = 0; j < m1->w; j++)
+                    m3->A[i][j] = m1->A[i][j] + m2->A[i][j];
+            }
+            return m3;
+        }
+    }
+    return NULL;
+}
+
+matrix* mult(matrix* m1, matrix* m2)
+{
+    if (m1 != NULL && m2 != NULL && m1->w == m2->h)
+    {
+        matrix* m3 = alloc_matrix(m1->h, m1->w);
+        if (m3 != NULL)
+        {
+            double sum;
+            for (int i = 0; i < m1->h; i++)
+            {
+                for(int j = 0; j < m2->w; j++)
+                {
+                    sum = 0;
+                    for (int k = 0; k < m2->h; k++)
+                        sum += (m1->A[i][k] * m2->A[k][j]);
+                    m3->A[i][j] = sum;
+                }
+            }
+        }
+    }
+    return NULL;
+}
+
+matrix* transpose(matrix* m)
+{
+    if (m != NULL)
+    {
+        matrix* t = alloc_matrix(m->h, m->w);
+        if (t != NULL)
+        {
+            for (int i = 0; i < m->h; i++)
+            {
+                for (int j = 0; j < m->w;j++)
+                    t->A[j][i] = m->A[i][j];
+            }
+            return t;
+        }
+    }
+    return NULL;
+}
+
+double determinant(matrix* m)
+{
+    
+}
+
+void lu_factorization(matrix* m, matrix* l, matrix* u)
+{
+
+}
+
+void ldl_factorization(matrix* m, matrix* l, matrix* d, matrix* l_t)
+{
+
+}
+
+void cholesky_factorization(matrix* m, matrix* l, matrix* l_t)
+{
+
+}
