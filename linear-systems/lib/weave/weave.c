@@ -72,9 +72,13 @@ void run_methods(matrix* m)
     method_data* data_3 = gauss_scaled(m);
     print_method_result(data_3);
 
+    method_data* data_4 = jacobi(m);
+    print_method_result(data_4);
+
     free_method_data(data_1);
     free_method_data(data_2);
     free_method_data(data_3);
+    free_method_data(data_4);
 }
 
 void option_0()

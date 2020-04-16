@@ -23,4 +23,8 @@ method_data* gauss_partial(matrix* m);
 
 method_data* gauss_scaled(matrix* m);
 
+method_data* jacobi(matrix* m);
+
+method_data* gauss_seidel(matrix* m);
+
 #endif

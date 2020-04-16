@@ -6,6 +6,9 @@
 #include <ticker.h>
 #include "methods.h"
 
+#define N 10000
+#define E 0.000001
+
 struct method_data
 {
     char* name;
@@ -79,6 +82,18 @@ void set_method_data(method_data* data, double* result, double ellapsed_time, in
         data->iterations = iterations;
         data->result_size = result_size;
     }
+}
+
+double distance(double* v1, double* v2, int n)
+{
+    if (v1 != NULL && v2 != NULL)
+    {
+        double sum = 0;
+        for(int i = 0; i < n; i++)
+            sum += pow(v1[i] - v2[i], 2);
+        return sqrt(sum);
+    }
+    return DBL_MAX;
 }
 
 method_data* gauss(matrix* m)
@@ -326,4 +341,68 @@ method_data* gauss_scaled(matrix* m)
         return data;
     }
     return NULL;
+}
+
+method_data* jacobi(matrix* m)
+{
+    if (m != NULL && get_width(m) == get_heigth(m) + 1)
+    {
+        method_data* data = alloc_method_data(50);
+        ticker* t = alloc_ticker();
+        if (data == NULL || t == NULL)
+            return NULL;
+
+        int w = get_width(m);
+        int h = get_heigth(m);
+
+        strcpy(data->name, "Jacobi Method");
+        double* result = (double*)calloc(h, sizeof(double));
+        double ellapsed_time = 0;
+        int iterations = 0;
+        int result_size = h;
+
+        start(t);
+        int k = 0;
+        double* x = (double*)calloc(h, sizeof(double));
+
+        while (k < N)
+        {
+            for (int i = 0; i < h; i++)
+            {
+                double sum = 0;
+                for (int j = 0; j < h; j++)
+                {
+                    if (i != j)
+                        sum += (get(m, i, j) * x[j]);
+                    iterations++;
+                }
+                result[i] = (1 / get(m, i, i)) * (get(m, i, w - 1) - sum);
+            }
+
+            if (distance(result, x, h) < E)
+                k = N;
+
+            for (int i = 0; i < h; i++)
+            {
+                x[i] = result[i];
+                iterations++;
+            }
+
+            k++;
+        }
+        end(t);
+
+        ellapsed_time = spent_time(t);
+        set_method_data(data, result, ellapsed_time, iterations, result_size);
+
+        free_ticker(t);
+        free(x);
+        return data;
+    }
+    return NULL;
+}
+
+method_data* gauss_seidel(matrix* m)
+{
+
 }
