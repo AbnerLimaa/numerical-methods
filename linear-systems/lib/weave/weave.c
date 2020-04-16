@@ -75,10 +75,14 @@ void run_methods(matrix* m)
     method_data* data_4 = jacobi(m);
     print_method_result(data_4);
 
+    method_data* data_5 = gauss_seidel(m);
+    print_method_result(data_5);
+
     free_method_data(data_1);
     free_method_data(data_2);
     free_method_data(data_3);
     free_method_data(data_4);
+    free_method_data(data_5);
 }
 
 void option_0()

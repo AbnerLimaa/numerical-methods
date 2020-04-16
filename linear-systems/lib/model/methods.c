@@ -404,5 +404,62 @@ method_data* jacobi(matrix* m)
 
 method_data* gauss_seidel(matrix* m)
 {
+    if (m != NULL && get_width(m) == get_heigth(m) + 1)
+    {
+        method_data* data = alloc_method_data(50);
+        ticker* t = alloc_ticker();
+        if (data == NULL || t == NULL)
+            return NULL;
 
+        int w = get_width(m);
+        int h = get_heigth(m);
+
+        strcpy(data->name, "Gauss-Seidel Method");
+        double* result = (double*)calloc(h, sizeof(double));
+        double ellapsed_time = 0;
+        int iterations = 0;
+        int result_size = h;
+
+        start(t);
+        int k = 0;
+        double* x = (double*)calloc(h, sizeof(double));
+
+        while (k < N)
+        {
+            for (int i = 0; i < h; i++)
+            {
+                double sum1 = 0;
+                double sum2 = 0;
+                for (int j = 0; j < h; j++)
+                {
+                    if (j < i - 1)
+                        sum1 += (get(m, i, j) * result[j]);
+                    if (j > i)
+                        sum2 += (get(m, i, j) * x[j]);
+                    iterations++;
+                }
+                result[i] = (1 / get(m, i, i)) * (get(m, i, w - 1) - sum1 - sum2);
+            }
+
+            if (distance(result, x, h) < E)
+                k = N;
+
+            for (int i = 0; i < h; i++)
+            {
+                x[i] = result[i];
+                iterations++;
+            }
+
+            k++;
+        }
+        end(t);
+
+        ellapsed_time = spent_time(t);
+        set_method_data(data, result, ellapsed_time, iterations, result_size);
+
+        free_ticker(t);
+        free(x);
+        return data;
+    }
+    return NULL;
 }
