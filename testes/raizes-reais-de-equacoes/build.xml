@@ -1,0 +1,16 @@
+<project name="raizes_equacoes" basedir="." default="main">
+    <property name="src.dir" value="src"/>
+    <property name="bin.dir" value="bin"/>
+    <property name="main-class" value="Programa"/>
+
+    <target name="clean">
+        <delete dir="${bin.dir}"/>
+        <mkdir dir="${bin.dir}"/>
+    </target>
+
+    <target name="compile">
+        <javac includeantruntime="false" srcdir="${src.dir}" destdir="${bin.dir}"/>
+    </target>
+
+    <target name="main" depends="clean, compile"/>
+</project>
